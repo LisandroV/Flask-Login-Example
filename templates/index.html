@@ -1,23 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 {% if session['logged_in'] %}
-   
+
 	{% if data %}
 	<h3>{{data}}</h3>
 	{% else %}
 
 	<a href="/logout">Logout</a> <br> <br>
-	<form action="" method="POST">
-	  <input type="username" name="username" placeholder="Instagram Username">
-	  <input type="submit" value="Finds">
-	</form>
+	<h1>Willkommen!</h1>
+    <br>
+    <div class="wrapper100">
+        Aqui pueden agregar lo que ustedes quieran.
+    </div>
 	{% endif %}
 
 {% else %}
-<p>Not login!</p>
-
-<a href="/login">Login</a> 
+<div>Sin autenticar!</div>
+<br>
+<div>
+<a href="/login">Login</a>
 <a href="/register">Register</a>
-
+</div>
 {% endif %}
 {% endblock %}

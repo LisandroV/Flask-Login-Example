@@ -3,6 +3,8 @@
       <title>aracne-projekt</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+
+          <link href="https://fonts.googleapis.com/css?family=Condiment&display=swap" rel="stylesheet">
       <!--===============================================================================================-->
           <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/aracne.png') }}"/>
       <!--===============================================================================================-->
@@ -14,9 +16,9 @@
       <!--===============================================================================================-->
   </head>
   <body>
+      <a href="/"><div class="home" style="font-family: Condiment;font-size: 2.2em;">Aracne-Projekt</div></a>
       <div class="limiter">
         <div class="container-login100" style="background-image: url('{{ url_for('static', filename='images/bg-01.jpg') }}');">
-            <div><a href="/">Flask Login Example</a></div>
 
             <hr>
             {% block content %}{% endblock %}
