@@ -32,6 +32,41 @@ def home():
 			return render_template('inicio.html', data=getfollowedby(username))
 		return render_template('inicio.html')
 
+@app.route('/bd', methods=['GET', 'POST']):
+	if not session.get('logged_in'):
+		return render_template('bd.html')
+	else:
+		if request.method == 'POST':
+			username = getname(request.form['username'])
+			return render_template('bd.html', data=getfollowedby(username))
+		return render_template('bd.html')
+
+@app.route('/diagrama', methods=['GET', 'POST']):
+	if not session.get('logged_in'):
+		return render_template('diagrama.html')
+	else:
+		if request.method == 'POST':
+			username = getname(request.form['username'])
+			return render_template('diagrama.html', data=getfollowedby(username))
+		return render_template('diagrama.html')
+
+@app.route('/dns', methods=['GET', 'POST']):
+	if not session.get('logged_in'):
+		return render_template('dns.html')
+	else:
+		if request.method == 'POST':
+			username = getname(request.form['username'])
+			return render_template('dns.html', data=getfollowedby(username))
+		return render_template('dns.html')
+
+@app.route('/servidor', methods=['GET', 'POST']):
+	if not session.get('logged_in'):
+		return render_template('servidor.html')
+	else:
+		if request.method == 'POST':
+			username = getname(request.form['username'])
+			return render_template('servidor.html', data=getfollowedby(username))
+		return render_template('servidor.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
