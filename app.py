@@ -33,6 +33,7 @@ def home():
 		return render_template('inicio.html')
 
 @app.route('/bd', methods=['GET', 'POST']):
+def bd():
 	if not session.get('logged_in'):
 		return render_template('bd.html')
 	else:
@@ -42,6 +43,7 @@ def home():
 		return render_template('bd.html')
 
 @app.route('/diagrama', methods=['GET', 'POST']):
+def diagrama():
 	if not session.get('logged_in'):
 		return render_template('diagrama.html')
 	else:
@@ -51,6 +53,7 @@ def home():
 		return render_template('diagrama.html')
 
 @app.route('/dns', methods=['GET', 'POST']):
+def dns():
 	if not session.get('logged_in'):
 		return render_template('dns.html')
 	else:
@@ -60,6 +63,7 @@ def home():
 		return render_template('dns.html')
 
 @app.route('/servidor', methods=['GET', 'POST']):
+def servidor():
 	if not session.get('logged_in'):
 		return render_template('servidor.html')
 	else:
