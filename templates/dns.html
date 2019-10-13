@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<!--Barra de navegación-->
+  <header>
+    <section class="wrapper">
+  		<nav>
+  			<ul>
+          <li><a href="inicio.html">Aracne </a></li>
+  				<li><a href="diagrama.html">Diagrama de red</a></li>
+  				<li><a href="dns.html">DNS</a></li>
+  				<li><a href="servidor.html">Configuraciones de servidor</a></li>
+  				<li><a href="bd.html">Base de datos</a></li>
+          <li><a href="/logout">Salir</a></li>
+  			</ul>
+      </nav>
+      </section>
+  </header>
+
+  <section class="contenido">
+    <font size=6>DNS</font>
+    <br><font size=5>
+    Tecnología basada en una base de datos que sirve para resolver nombres en las redes, es decir,
+    <br>
+    para conocer la dirección IP de la máquina donde está alojado el dominio al que queremos acceder.
+    <br>
+    está compuesto por tres partes con funciones bien diferenciadas: Cliente DNS, Servidor DNS y Zonas de seguridad.
+    <br>
+    <br>
+    <div align="center"><img src="../static/images/dns.png"></div>
+    <br>
+    La resolución de nombres utiliza una estructura en árbol, mediante la cual los diferentes servidores DNS
+    <br>
+    de las zonas de autoridad se encargan de resolver las direcciones de su zona, y sino se lo solicitan a
+    <br>
+    otro servidor que creen que conoce la dirección. </font>
+    <br>
+    <br>
+    <div align="center"><img src="../static/images/arbolDns.jpg"></div>
+    <br>
+    <br>
+    <!--https://www.xatakamovil.com/conectividad/como-funciona-internet-dns-->
+
+  </section>
+{% else %}
+<div>Sin autenticar!</div>
+<br>
+<div>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+</div>
+{% endif %}
+{% endblock %}

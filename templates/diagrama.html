@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<!--Barra de navegación-->
+  <header>
+    <section class="wrapper">
+  		<nav>
+  			<ul>
+          <li><a href="inicio.html">Aracne </a></li>
+  				<li><a href="diagrama.html">Diagrama de red</a></li>
+  				<li><a href="dns.html">DNS</a></li>
+  				<li><a href="servidor.html">Configuraciones de servidor</a></li>
+  				<li><a href="bd.html">Base de datos</a></li>
+          <li><a href="/logout">Salir</a></li>
+  			</ul>
+      </nav>
+      </section>
+  </header>
+<!--Información sobre un diagrama de red-->
+  <section class="contenido">
+      <font size=7> Diagrama de red</font>
+      <br>
+      <br>
+      <font size=6>VPC</font>
+      <br><font size=5>
+      Virtual Private Cloud por sus siglas VPC, puede controlar todos los aspectos
+      <br>
+      del entorno de red virtual, incluida la selección de su propio rango de direcciones IP,
+      <br>
+      la creación de subredes y la configuración de tablas de ruteo y gateways de red.</font>
+      <br>
+      <br>
+      <br>
+      <div align="center"><img src="../static/images/Proyecto1.jpg"></div>
+      <br>
+      
+      <font size=6>Subred Pública</font>
+      <br><font size=5>
+      Las instancias de la subred pública pueden enviar tráfico de salida directamente a Internet.
+      <br>
+      Un ejemplo común es un sitio web multinivel, con los servidores web en una subred pública.
+      <br>
+      Puede configurar la seguridad y el direccionamiento para que los servidores web se puedan
+      <br>
+      comunicar con los servidores de base de datos.</font>
+      <br>
+      <br>
+
+      <br>
+      <font size=6>Subred Privada</font>
+      <br><font size=5>
+      las instancias de la subred privada pueden obtener acceso a Internet utilizando una
+      <br>
+      gateway de traducción de dirección de red (NAT) que reside en la subred pública.
+      <br>
+      <br>
+      Los servidores de base de datos pueden conectarse a Internet para las actualizaciones de software
+      <br>
+      a través de la gateway NAT, pero Internet no puede establecer conexiones a los servidores de base de datos..</font>
+      <br>
+      <br>
+      <!--https://docs.aws.amazon.com/es_es/vpc/latest/userguide/VPC_Scenario2.html-->
+
+
+      <br>
+      <font size=6>Puerta de enlace NAT</font>
+      <br><font size=5>
+      Puedes utilizar una gateway de conversión de las direcciones de red (NAT) para permitir
+      <br>
+      a las instancias de la subred privada conectarse a Internet
+      <br>
+      a la vez que se impide a Internet iniciar una conexión a esas mismas instancias.
+      <br>
+      <br>
+      <!--https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-nat-gateway.html-->
+
+      <br>
+      <font size=6>Tabla de ruteo</font>
+      <br><font size=5>
+      La tabla de enrutamiento, en realidad, es una estructura jerárquica que se usa para acelerar
+      <br>
+      el proceso de búsqueda cuando se ubican rutas y se reenvían paquetes.
+      <br>
+      <br>
+      <!--https://sites.google.com/site/redesciscocnna/home/ccna-i/cap-8-->
+  </section>
+
+{% else %}
+<div>Sin autenticar!</div>
+<br>
+<div>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+</div>
+{% endif %}
+{% endblock %}

@@ -25,12 +25,12 @@ class User(db.Model):
 def home():
 	""" Session control"""
 	if not session.get('logged_in'):
-		return render_template('index.html')
+		return render_template('inicio.html')
 	else:
 		if request.method == 'POST':
 			username = getname(request.form['username'])
-			return render_template('index.html', data=getfollowedby(username))
-		return render_template('index.html')
+			return render_template('inicio.html', data=getfollowedby(username))
+		return render_template('inicio.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<!--Barra de navegación-->
+  <header>
+    <section class="wrapper">
+  		<nav>
+  			<ul>
+          <li><a href="inicio.html">Aracne </a></li>
+  				<li><a href="diagrama.html">Diagrama de red</a></li>
+  				<li><a href="dns.html">DNS</a></li>
+  				<li><a href="servidor.html">Configuraciones de servidor</a></li>
+  				<li><a href="bd.html">Base de datos</a></li>
+          <li><a href="/logout">Salir</a></li>
+  			</ul>
+      </nav>
+      </section>
+  </header>
+
+  <section class="contenido">
+    <br>
+    <font size=6>Base de datos</font>
+    <br><font size=5>
+    Una base de datos es un conjunto de datos pertenecientes a un mismo contexto y almacenados sistemáticamente para su posterior uso.
+    <br>
+    En este caso no fue necesaria mas que la relacion "Usuario".</font>
+    <br>
+    <br>
+    <div align="center"><img src="../static/images/basedatos.png"></div>
+    <br>
+
+  </section>
+
+{% else %}
+<div>Sin autenticar!</div>
+<br>
+<div>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+</div>
+{% endif %}
+{% endblock %}
+

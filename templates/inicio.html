@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+  <header>
+    <section class="wrapper">
+  		<nav>
+  			<ul>
+          <li><a href="inicio.html">Aracne </a></li>
+  				<li><a href="diagrama.html">Diagrama de red</a></li>
+  				<li><a href="dns.html">DNS</a></li>
+  				<li><a href="servidor.html">Configuraciones de servidor</a></li>
+  				<li><a href="bd.html">Base de datos</a></li>
+          <li><a href="/logout">Salir</a></li>
+  			</ul>
+      </nav>
+      </section>
+  </header>
+
+  <section class="contenido wrapper">
+    <font size=7>
+    ARACNE PROJEKT
+    </font>
+    <center>
+    <video src="../static/videos/ARACNE.mp4" width="680" height="480" autoplay muted loop></video>
+  </center>
+    <font size=6>
+    Existe en Grecia el mito de una famosa bordadora, sus trabajos eran tan delicados y exquisitos que le hacían encargos de todas
+    las partes del mundo conocido. Un día, decidió desafiar a la propia Atenea para ver quién era la mejor
+    tejedora.
+    <br>
+    <br>
+    El tapiz de Aracne superaba por mucho al de Atenea, la diosa, de personalidad celosa ,
+    enfureció cegada por la envidia y decidió destruir por completo la obra de su contrincante y
+    terminar con su vida. Pero la diosa se apiadó de ella y la salvó.
+    <br>
+    <br>
+    Como castigo, transformó a
+    la joven bordadora en una araña, de tal forma que así hasta la eternidad se dedicaría a
+    bordar todas las horas de su vida.</font>
+     <!--https://redhistoria.com/mitologia-griega-aracne-y-atenea/-->
+
+  </section>
+{% else %}
+<div>Sin autenticar!</div>
+<br>
+<div>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+</div>
+{% endif %}
+{% endblock %}

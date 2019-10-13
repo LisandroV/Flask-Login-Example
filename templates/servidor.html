@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<!--Barra de navegación-->
+  <header>
+    <section class="wrapper">
+  		<nav>
+  			<ul>
+          <li><a href="inicio.html">Aracne </a></li>
+  				<li><a href="diagrama.html">Diagrama de red</a></li>
+  				<li><a href="dns.html">DNS</a></li>
+  				<li><a href="servidor.html">Configuraciones de servidor</a></li>
+  				<li><a href="bd.html">Base de datos</a></li>
+          <li><a href="/logout">Salir</a></li>
+  			</ul>
+      </nav>
+      </section>
+  </header>
+
+  <section class="contenido">
+
+    <font size=6>Servidor web </font>
+    <br><font size=5>
+    Es un programa que gestiona cualquier aplicación en el lado del servidor realizando conexiones bidireccionales y/o
+    <br>
+    unidireccionales y síncronas o asíncronas con el cliente generando una respuesta en cualquier lenguaje o aplicación
+    <br>
+     en el lado del cliente.  Generalmente se utiliza el protocolo HTTP para estas comunicaciones.
+    <br>
+    <br>
+    En aracne project usamos Apache el cual no es un servidor físico, sino un software que se ejecuta en un servidor.
+    <br>
+    El servidor y el cliente se comunican a través del protocolo HTTP y Apache es responsable de garantizar una
+    <br>
+    comunicación fluida y segura entre las dos máquinas. El servidor y el cliente se comunican a través del
+    <br>
+    protocolo HTTP y Apache es responsable de garantizar una comunicación fluida y segura entre las dos máquinas.
+    <br>
+    <br>
+    <div align="center"><img src="../static/images/web.jpg" width="400" height="250" ></div>
+    <!--https://www.ecured.cu/Servidor_Web-->
+    <!--https://www.hostinger.mx/tutoriales/que-es-apache/-->
+    <br>
+    <br>
+
+    <font size=6>Servidor de aplicación </font>
+    <br><font size=5>
+    Proporciona servicios que soportan la ejecución y disponibilidad de las aplicaciones desplegadas.
+    <br>
+    permite mejorar tres aspectos fundamentales en una aplicación: la alta disponibilidad, la escalabilidad y el mantenimiento.
+    <br>
+    Un ejemplo común del uso de servidores de aplicación (y de sus componentes) son los portales de Internet, dichos portales
+    <br>
+    permiten tener acceso a información y servicios (como servicios Web) de manera segura y transparente, desde cualquier dispositivo.
+    <br>
+    <br>
+    <div align="center"><img src="../static/images/apache.png" width="400" height="200"></div>
+    <!--https://www.ecured.cu/Servidor_de_Aplicaciones-->
+    <br>
+    <br>
+
+    <font size=6>Servidor de correo electrónico</font>
+    <br><font size=5>
+    Permite el intercambio de mensajes de correo electrónico, ya sea entre usuarios, Servidores, cliente y servidor.
+    <br>
+    Parar llevar acabo el funcionamiento del servidor de correo son necesarios algunos protocolos:
+    <br>
+    <br>
+    SMTP, Simple Mail Transfer Protocol: se utiliza para el envío de correo ya sea desde un servidor de
+    <br>
+    correo a otro, o bien, desde un cliente de correo electrónico al servidor.
+    <br>
+    <br>
+    POP, Post Office Protocol: Se utiliza para obtener los mensajes guardados en el servidor y pasárselos al usuario.
+    <br>
+    <br>
+    POP3, permite acceder al buzón de correo de un usuario y gestionar mensajes.
+    <br>
+    <br>
+    <div align="center"><img src="../static/images/Mail.gif"></div>
+    <!--https://www.ecured.cu/Servidor_de_correo-->
+
+    <br>
+    <br>
+    <font size=6>Servidor de bases de datos</font>
+    <br><font size=5>
+    Permiten organizar datos en una o más tablas relacionadas. Todos los sistemas gestores analizados
+    <br>
+    cuentan con múltiples configuraciones de protocolos, adaptándose a los protocolos existentes y
+    <br>
+    estandarizados de la actualidad: TCP/IP, IPX, Banyan, ect; es importante no sólo el canal de
+    <br>
+    comunicaciones que está disponible para los servidores de datos sino también cómo es transmitida la información.
+    <br>
+    <br>
+    <div align="center"><img src="../static/images/bd.jpeg"></div>
+    <!--https://www.ecured.cu/Servidor_Bases_de_Datos-->
+
+
+  </section>
+
+{% else %}
+<div>Sin autenticar!</div>
+<br>
+<div>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+</div>
+{% endif %}
+{% endblock %}
