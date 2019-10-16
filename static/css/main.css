@@ -1,10 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Condiment&display=swap);
+/*@import url(https://fonts.googleapis.com/css?family=Condiment&display=swap);*/
 
 
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
-
+/*
 @font-face {
   font-family: Poppins-Regular;
   src: url('../fonts/poppins/Poppins-Regular.ttf');
@@ -29,13 +29,13 @@
   font-family: CondimentS;
   src: url('../fonts/condiment/Condiment-Regular.ttf');
 }
-
+*/
 
 
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
-
+/*
 * {
 	margin: 0px;
 	padding: 0px;
@@ -45,7 +45,7 @@
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
-}
+}*/
 
 /*---------------------------------------------*/
 a {
