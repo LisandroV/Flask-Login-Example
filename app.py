@@ -6,7 +6,7 @@ from instagram import getfollowedby, getname
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres+psycopg2://aracne_user:1234aracne@bd.aracne-projekt.tk:5432/aracne_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres+psycopg2://aracne_user:1234aracne@http://db.aracne-projekt.tk:5432/aracne_db'
 #'sqlite:///test.db'
 #'postgresql://user:password@hostname/database_name'
 
