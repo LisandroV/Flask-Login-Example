@@ -87,7 +87,7 @@ def login():
 		return render_template('login.html')
 	else:
 		name = request.form['username']
-		m.update(request.form['password'])
+		m.update(request.form['password'].encode('utf-8'))
 		passw = m.hexdigest()
 		try:
 			data = User.query.filter_by(username=name, password=passw).first()
@@ -103,7 +103,7 @@ def login():
 def register():
 	"""Register Form"""
 	if request.method == 'POST':
-		m.update(request.form['password'])
+		m.update(request.form['password'].encode('utf-8'))
 		new_pass = m.hexdigest() 
 		new_user = User(username=request.form['username'], password=new_pass)
 		db.session.add(new_user)
