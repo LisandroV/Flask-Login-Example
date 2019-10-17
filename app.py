@@ -6,21 +6,26 @@ from instagram import getfollowedby, getname
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres+psycopg2://aracne_user:1234aracne@bd.aracne-projekt.tk:5432/aracne_db'
+#'sqlite:///test.db'
 #'postgresql://user:password@hostname/database_name'
-#'postgres+psycopg2://postgres:password@localhost:5432/books'
+
 db = SQLAlchemy(app)
 
 
 class User(db.Model):
 	""" Create user table"""
-	id = db.Column(db.Integer, primary_key=True)
-	username = db.Column(db.String(80), unique=True)
-	password = db.Column(db.String(80))
+	__tablename__ = 'users'
+	username = db.Column(db.String(255), primary_key=True)
+	password = db.Column(db.String(255))
 
-	def __init__(self, username, password):
+	"""def __init__(self, username, password):
 		self.username = username
-		self.password = password
+		self.password = password"""
+
+	def __repr__(self):
+		return "<User(name='{}', password='{}')>"\
+                .format(self.username, self.password)
 
 
 @app.route('/', methods=['GET', 'POST'])
