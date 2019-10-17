@@ -12,7 +12,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres+psycopg2://aracne_user:1234ara
 #'postgresql://user:password@hostname/database_name'
 
 db = SQLAlchemy(app)
-m = hashlib.sha256()
 
 class User(db.Model):
 	""" Create user table"""
@@ -87,6 +86,7 @@ def login():
 		return render_template('login.html')
 	else:
 		name = request.form['username']
+		m = hashlib.sha256()
 		m.update(request.form['password'].encode('utf-8'))
 		passw = m.hexdigest()
 		try:
@@ -103,6 +103,7 @@ def login():
 def register():
 	"""Register Form"""
 	if request.method == 'POST':
+		m = hashlib.sha256()
 		m.update(request.form['password'].encode('utf-8'))
 		new_pass = m.hexdigest() 
 		new_user = User(username=request.form['username'], password=new_pass)
