@@ -14,7 +14,7 @@ p {
 header {
   background: rgba(0,0,0,0.9);
   width: 100%;
-  position: fixed;
+  position: static;
   z-index: 10;
 }
 
@@ -39,7 +39,7 @@ nav ul li a {
 }
 /*Fondo al pasar el cursor sobre las pestañas*/
 nav ul li:hover {
-  background: #0000cc;
+  background: red;
 }
 
 .contenido {
