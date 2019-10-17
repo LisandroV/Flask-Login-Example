@@ -16,8 +16,8 @@ db = SQLAlchemy(app)
 class User(db.Model):
 	""" Create user table"""
 	__tablename__ = 'users'
-	username = db.Column(db.String(255), primary_key=True)
-	password = db.Column(db.String(255))
+	username = db.Column('username',db.String(255), primary_key=True)
+	password = db.Column('password',db.String(255))
 
 	"""def __init__(self, username, password):
 		self.username = username
