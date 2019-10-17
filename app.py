@@ -3,6 +3,7 @@
 from flask import Flask, url_for, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from instagram import getfollowedby, getname
+import hashlib
 
 
 app = Flask(__name__)
@@ -11,7 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres+psycopg2://aracne_user:1234ara
 #'postgresql://user:password@hostname/database_name'
 
 db = SQLAlchemy(app)
-
+m = hashlib.sha256()
 
 class User(db.Model):
 	""" Create user table"""
@@ -86,7 +87,8 @@ def login():
 		return render_template('login.html')
 	else:
 		name = request.form['username']
-		passw = request.form['password']
+		m.update(request.form['password'])
+		passw = m.hexdigest()
 		try:
 			data = User.query.filter_by(username=name, password=passw).first()
 			if data is not None:
@@ -101,7 +103,9 @@ def login():
 def register():
 	"""Register Form"""
 	if request.method == 'POST':
-		new_user = User(username=request.form['username'], password=request.form['password'])
+		m.update(request.form['password'])
+		new_pass = m.hexdigest() 
+		new_user = User(username=request.form['username'], password=new_pass)
 		db.session.add(new_user)
 		db.session.commit()
 		return render_template('login.html')
